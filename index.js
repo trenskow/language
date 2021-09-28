@@ -155,3 +155,23 @@ exports.entities = (identifier) => entities(expand(identifier));
 exports.expand = expand;
 exports.collapse = collapse;
 exports.match = match;
+
+Object.defineProperty(exports, 'all', {
+	get: () => {
+		return [].concat(...Object.keys(languages).map((language) => {
+			return [].concat(...Object.keys(languages[language].scripts).map((script) => {
+				return [].concat(...languages[language].scripts[script].countries.map((country) => {
+					let result = [`${language}-${script}-${country}`];
+					if (Object.keys(languages[language].scripts).length == 1) {
+						result.push(`${language}-${country}`);
+						if (languages[language].scripts[script].countries.length == 1) {
+							result.push(language);
+						}
+					}
+					return result;
+				}));
+			}));
+		}));
+	},
+	enumerable: true
+});
