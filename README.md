@@ -27,23 +27,23 @@ Takes a (partially) full RFC 5646 string and reduces it to its minimum value.
 ### Example
 
 ```javascript
-collapse('da-Latn-DK'); // Returns 'da'
-collapse('da-DK') // Returns 'da'
-collapse('en-US') // Returns 'en-US'
+collapse('da-Latn-DK'); // -> 'da'
+collapse('da-DK') // -> 'da'
+collapse('en-US') // -> 'en-US'
 ```
 
 ## `match(identifier, supported, [default])`
 
-Takes an HTTP `Accept-Header` value value and returns the language to use based on an array of supported languages.
+Takes an HTTP `Accept-Header` value and returns the language to use based on an array of supported languages.
 
 > If `default` is omitted the first supported language becomes the default.
 
 ### Example
 
 ```javascript
-match('da, en-US; en-GB;q=0.8, en', ['da', 'en-US'], 'en-US'); // Returns 'da'
-match('en-GB;q=0.8, en', ['en-US', 'da-DK']); // returns 'en-US'
-match('de-DE', ['da-DK', 'en-US'], 'en-US'); // Returns 'en-US'
+match('da, en-US; en-GB;q=0.8, en', ['da', 'en-US'], 'en-US'); // -> 'da'
+match('en-GB;q=0.8, en', ['en-US', 'da-DK']); // -> 'en-US'
+match('de-DE', ['da-DK', 'en-US'], 'en-US'); // -> 'en-US'
 ```
 
 ## `all`
@@ -53,8 +53,7 @@ Returns all posible identifier combinations.
 ### Example
 
 ```javascript
-all /*
-	[
+all /* -> [
     'af-Latn-NA', 'af-NA',      'af-Latn-ZA', 'af-ZA',      'am-Ethi-ET',
     'am-ET',      'am',         'ar-Arab-AE', 'ar-Arab-BH', 'ar-Arab-DJ',
     'ar-Arab-DZ', 'ar-Arab-EG', 'ar-Arab-EH', 'ar-Arab-ER', 'ar-Arab-IL',
