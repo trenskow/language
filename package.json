@@ -18,10 +18,10 @@
   "homepage": "https://github.com/trenskow/language#readme",
   "devDependencies": {
     "chai": "^4.3.7",
-    "eslint": "^8.35.0",
+    "eslint": "^8.46.0",
     "mocha": "^10.2.0"
   },
   "dependencies": {
-    "@trenskow/localization-data": "^1.2.1"
+    "@trenskow/localization-data": "^1.2.4"
   }
 }
