@@ -121,8 +121,8 @@ const match = (identifier, supported, def) => {
 		})
 		// Take each user requested languages.
 		.reduce((res, language) => {
-		// Compare them to the supported languages.
-		// We use a point system to determine the best match.
+			// Compare them to the supported languages.
+			// We use a point system to determine the best match.
 			return res.concat(...supportedExpanded.map((supported) => {
 				let result = 0.0;
 				let supportedParts = parts(supported);
