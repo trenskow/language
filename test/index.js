@@ -8,7 +8,7 @@ const
 
 describe('language', () => {
 	it ('should come back with all.', () => {
-		expect(language.all).to.be.an('array').lengthOf(723);
+		expect(language.all).to.be.an('array').lengthOf(747);
 	});
 	it ('should come back with `da-Latn-DK`.', () => {
 		expect(language.expand('da')).to.equal('da-Latn-DK');

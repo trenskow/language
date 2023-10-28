@@ -159,7 +159,7 @@ exports.match = match;
 Object.defineProperty(exports, 'all', {
 	get: () => {
 		return [].concat(...Object.keys(languages).map((language) => {
-			return [].concat(...Object.keys(languages[language].scripts).map((script) => {
+			return [].concat(...Object.keys(languages[language].scripts || {}).map((script) => {
 				return [].concat(...languages[language].scripts[script].countries.map((country) => {
 					let result = [`${language}-${script}-${country}`];
 					if (Object.keys(languages[language].scripts).length == 1) {
