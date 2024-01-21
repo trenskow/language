@@ -3,6 +3,7 @@
   "version": "1.3.2",
   "description": "A small library for getting a full language identifier (RFC 5646).",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha.js test/index.js"
   },

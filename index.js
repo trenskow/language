@@ -1,7 +1,9 @@
 'use strict';
 
+import localizationData from '@trenskow/localization-data';
+
 const
-	{ countries, languages, scripts } = require('@trenskow/localization-data');
+	{ countries, languages, scripts } = localizationData;
 
 const lowercaseKeys = (obj) => {
 	return Object.keys(obj).map((key) => key.toLowerCase());
@@ -151,12 +153,23 @@ const match = (identifier, supported, def) => {
 
 };
 
-exports.entities = (identifier) => entities(expand(identifier));
-exports.expand = expand;
-exports.collapse = collapse;
-exports.match = match;
+const expandedEntities = (identifier) => entities(expand(identifier));
 
-Object.defineProperty(exports, 'all', {
+let language = {
+	entities: expandedEntities,
+	expand,
+	collapse,
+	match
+};
+
+export default language;
+
+export { expandedEntities as entities };
+export { expand };
+export { collapse };
+export { match };
+
+Object.defineProperty(language, 'all', {
 	get: () => {
 		return [].concat(...Object.keys(languages).map((language) => {
 			return [].concat(...Object.keys(languages[language].scripts || {}).map((script) => {

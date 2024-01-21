@@ -1,10 +1,5 @@
-'use strict';
-
-const
-	{ expect } = require('chai');
-
-const
-	language = require('../');
+import { expect } from 'chai';
+import language from '../index.js';
 
 describe('language', () => {
 	it ('should come back with all.', () => {
