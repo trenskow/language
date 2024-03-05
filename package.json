@@ -18,11 +18,11 @@
   },
   "homepage": "https://github.com/trenskow/language#readme",
   "devDependencies": {
-    "chai": "^5.0.3",
-    "eslint": "^8.56.0",
-    "mocha": "^10.2.0"
+    "chai": "^5.1.0",
+    "eslint": "^8.57.0",
+    "mocha": "^10.3.0"
   },
   "dependencies": {
-    "@trenskow/localization-data": "^1.3.1"
+    "@trenskow/localization-data": "^1.3.2"
   }
 }
