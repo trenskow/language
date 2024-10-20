@@ -1,6 +1,6 @@
 {
 	"name": "@trenskow/language",
-	"version": "1.4.14",
+	"version": "1.4.15",
 	"description": "A small library for getting a full language identifier (RFC 5646).",
 	"main": "index.js",
 	"type": "module",
