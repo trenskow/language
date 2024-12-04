@@ -1,5 +1,3 @@
-'use strict';
-
 import localizationData from '@trenskow/localization-data';
 
 const
