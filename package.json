@@ -21,11 +21,11 @@
 		"@eslint/eslintrc": "^3.3.1",
 		"@eslint/js": "^9.13.0",
 		"chai": "^5.2.0",
-		"eslint": "^9.28.0",
+		"eslint": "^9.29.0",
 		"globals": "^16.2.0",
-		"mocha": "^11.6.0"
+		"mocha": "^11.7.1"
 	},
 	"dependencies": {
-		"@trenskow/localization-data": "^1.4.27"
+		"@trenskow/localization-data": "^1.4.28"
 	}
 }
