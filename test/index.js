@@ -14,6 +14,9 @@ describe('language', () => {
 	it ('should come back with `da` (from `da-DK`).', () => {
 		expect(language.collapse('da-DK')).to.equal('da');
 	});
+	it ('should come back with `en` when collapsing from a list of available languages.', () => {
+		expect(language.collapse('en-US', ['en-Latn-US', 'da'])).to.equal('en');
+	});
 	it ('should throw an error if country is missing (`fr`).', () => {
 		expect(() => { language.expand('fr'); }).to.throw('Country is ambiguous for identifier \'fr\'.');
 	});

@@ -66,14 +66,45 @@ const expand = (identifier) => {
 
 };
 
-const collapse = (identifier) => {
+const collapse = (identifier, available) => {
+
+	let useLanguages = languages;
+
+	if (typeof available !== 'undefined') {
+
+		if (!Array.isArray(available) || !available.length) throw new Error('Available languages must be a non-empty array of language identifiers.');
+		if (available.some((item) => typeof item !== 'string')) throw new Error('Available languages must be a non-empty array of language identifiers.');
+
+		available = available.map((identifier) => expand(identifier));
+
+		useLanguages = {};
+
+		available.forEach((identifier) => {
+			const { languageIdentifier, scriptIdentifier, countryIdentifier } = entities(identifier);
+			if (!useLanguages[languageIdentifier]) {
+				useLanguages[languageIdentifier] = {
+					primaryScripts: languages[languageIdentifier].primaryScripts,
+					scripts: {}
+				};
+			}
+			if (!useLanguages[languageIdentifier].scripts[scriptIdentifier]) {
+				useLanguages[languageIdentifier].scripts[scriptIdentifier] = {
+					countries: []
+				};
+			}
+			if (!useLanguages[languageIdentifier].scripts[scriptIdentifier].countries.includes(countryIdentifier)) {
+				useLanguages[languageIdentifier].scripts[scriptIdentifier].countries.push(countryIdentifier);
+			}
+		});
+
+	}
 
 	const { languageIdentifier, scriptIdentifier, countryIdentifier } = entities(expand(identifier));
 
 	let parts = [languageIdentifier];
 
-	if (languages[languageIdentifier].primaryScripts.length > 1) parts.push(scriptIdentifier);
-	if (languages[languageIdentifier].scripts[scriptIdentifier].countries.length > 1) parts.push(countryIdentifier);
+	if (useLanguages[languageIdentifier].primaryScripts.length > 1) parts.push(scriptIdentifier);
+	if (useLanguages[languageIdentifier].scripts[scriptIdentifier].countries.length > 1) parts.push(countryIdentifier);
 
 	return parts.join('-');
 
