@@ -26,6 +26,6 @@
 		"mocha": "^11.8.0"
 	},
 	"dependencies": {
-		"@trenskow/localization-data": "^1.4.63"
+		"@trenskow/localization-data": "^1.4.64"
 	}
 }
